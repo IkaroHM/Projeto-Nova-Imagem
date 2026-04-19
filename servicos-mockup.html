@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - Nova Imagem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rosa: #b5447a;
+            --rosa-escuro: #943561;
+            --verde: #c8e6c9;
+            --verde-medio: #6cbe6f;
+            --fundo: #fdf6f9;
+            --branco: #ffffff;
+            --cinza: #f0e8ed;
+            --texto: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--fundo);
+            color: var(--texto);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 2rem 2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        header a {
+            color: var(--rosa);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        header a:hover { text-decoration: underline; }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--rosa);
+            font-size: 1.8rem;
+        }
+
+        .conteudo {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        /* FORMULÁRIO */
+        .formulario {
+            width: 280px;
+            flex-shrink: 0;
+            background: var(--branco);
+            border: 1.5px solid var(--verde);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .formulario h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--rosa);
+            margin-bottom: 1rem;
+        }
+
+        .formulario input {
+            display: block;
+            width: 100%;
+            padding: 10px 14px;
+            margin-bottom: 10px;
+            border: 1.5px solid var(--verde);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: 'DM Sans', sans-serif;
+            outline: none;
+            background: var(--fundo);
+        }
+
+        .formulario input:focus {
+            border-color: var(--rosa);
+        }
+
+        .formulario button {
+            width: 100%;
+            padding: 10px;
+            background: var(--rosa);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: 'DM Sans', sans-serif;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .formulario button:hover {
+            background: var(--rosa-escuro);
+        }
+
+        /* LISTA */
+        .lista {
+            flex: 1;
+            background: var(--branco);
+            border: 1.5px solid var(--verde-medio);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .lista h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--rosa);
+            margin-bottom: 1rem;
+        }
+
+        .servico {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--fundo);
+            border: 1.5px solid var(--verde);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            transition: 0.3s;
+        }
+
+        .servico:hover { border-color: var(--rosa); }
+
+        .servico-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .servico-nome {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .servico-preco {
+            color: var(--verde-medio);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .btnApagar {
+            background: none;
+            border: 1.5px solid var(--rosa);
+            color: var(--rosa);
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .btnApagar:hover {
+            background: var(--rosa);
+            color: white;
+        }
+
+        footer {
+            background: #333;
+            text-align: center;
+            color: #f7fae5;
+            font-size: 0.85rem;
+            padding: 8px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            .conteudo { flex-direction: column; }
+            .formulario { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/">← Voltar</a>
+        <h1>Serviços</h1>
+    </header>
+
+    <div class="conteudo">
+
+        <div class="formulario">
+            <h2>Adicionar serviço</h2>
+            <input type="text" placeholder="Nome do serviço">
+            <input type="text" placeholder="Preço (ex: 80.00)">
+            <button>Adicionar</button>
+        </div>
+
+        <div class="lista">
+            <h2>Serviços cadastrados</h2>
+
+            <div class="servico">
+                <div class="servico-info">
+                    <span class="servico-nome">Unha em gel</span>
+                    <span class="servico-preco">R$ 80,00</span>
+                </div>
+                <button class="btnApagar">Apagar</button>
+            </div>
+
+            <div class="servico">
+                <div class="servico-info">
+                    <span class="servico-nome">Progressiva</span>
+                    <span class="servico-preco">R$ 150,00</span>
+                </div>
+                <button class="btnApagar">Apagar</button>
+            </div>
+
+            <div class="servico">
+                <div class="servico-info">
+                    <span class="servico-nome">Corte de cabelo</span>
+                    <span class="servico-preco">R$ 50,00</span>
+                </div>
+                <button class="btnApagar">Apagar</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>Criado por Ikaro</footer>
+
+</body>
+</html>

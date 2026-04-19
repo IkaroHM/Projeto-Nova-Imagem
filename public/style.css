@@ -1,0 +1,220 @@
+:root {
+    --cor-principal: #b5447a;
+    --cor-hover: #943561;
+    --cor-borda: #bbecbd;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    transition-duration: 0.4s;
+    display: flex;
+    transition-duration: 0.4s;
+    text-align: center;
+    color: var(--cor-principal);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+a:focus, a:hover {
+    color: var(--cor-hover);
+    text-decoration: underline;
+}
+
+body {
+    display: flex;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fdf6f9;
+    color: #333;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+#listaClientes {
+    border: 1.5px solid var(--cor-borda);
+    border-radius: 25px;
+    padding: 0.75rem;
+    background-color: #fff9fb;
+    max-width: 100%;
+    margin: auto;
+}
+
+
+#btnApagar {
+    margin-left: 1%;
+}
+
+
+
+h1 {
+    transition-duration: 0.4s;
+    text-align: center;
+    color:  var(--cor-principal);
+    font-size: 2rem;
+    margin-bottom: 5%;
+    font-style: italic;
+    font-family: 'PlayFair Display', serif;
+}
+
+h1:hover{
+    text-decoration: underline;
+    font-size: 2.3rem;
+    color: var(--cor-hover);
+}
+
+.formulario {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 ;
+    border-color: var(--cor-borda);
+}
+
+input, select {
+    transition-duration: 0.4s;
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border: 1.5px solid var(--cor-borda);
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus, select:focus {
+    color: rgb(48, 48, 48);
+    border-color: var(--cor-hover);
+}
+
+
+#btnAdicionarCliente {
+    transition-duration: 0.4s;
+    background-color: var(--cor-principal);
+    color: white;
+    border: none;
+    padding: 0.5px 24px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15%;
+}
+
+#btnAdicionarCliente:hover {
+    background-color: var(--cor-hover);
+    color: rgb(194, 194, 194);
+}
+
+#erroCampos {
+    display: none;
+    color: rgb(151, 41, 13);
+    transition: 0.5s;
+}
+
+#erroCampos:hover {
+    color: rgb(202, 53, 16);
+    text-decoration: underline;
+}
+
+
+.btnApagar, .servicoFeito {
+    transition-duration: 0.4s;
+    background: none;
+    border: 1.5px solid var(--cor-hover);
+    color: var(--cor-principal);
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.btnApagar:hover, .servicoFeito:hover {
+    background-color: var(--cor-principal);
+    color: white;
+}
+
+.cliente {
+    flex-direction: column;
+    align-items: flex-start;
+    transition-duration: 0.4s;
+    background: white;
+    border: 1.5px solid var(--cor-borda);
+    border-radius: 25px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 4px;
+    max-width: 100%;
+    color: var(--cor-principal);
+}
+
+.cliente:hover{
+    border-color: var(--cor-hover);
+}
+
+.clienteBotoes {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.cliente:hover{
+    color: var(--cor-principal);
+}
+
+.conteudo {
+    flex: 1;
+    display: block;
+    padding: 32px 16px;
+    border-color: var(--cor-borda);
+}
+
+.layout {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.painel {
+    margin-left: auto;
+    border: 1.5px solid var(--cor-borda);
+    border-radius: 20px;
+    padding: 1rem;
+    background-color: #fff9fb;
+    min-width: 200px;
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+footer {
+    background-color: #333;
+    text-align: center;
+    color: #f7fae5;
+    font-size: 0.85rem;
+    padding-top: 5px;
+}
+
+     /* MOBILE */
+@media (max-width: 600px) {
+    .conteudo {
+        flex-direction: column;
+        }
+
+    .formulario {
+        width: 100%;
+        }
+}

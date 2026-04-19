@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de servicos</title>
+    <link rel="stylesheet" href="servicos.css">
+    <link rel="stylesheet" href="nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+</head>
+
+    <nav>
+
+        <div id="linkNav">
+            <span><a href="index.html">Clientes</a></span>
+            <span><a href="servicos.html">Servicos</a></span>
+            <span><a href="faturamento.html">Faturamento</a></span>
+        </div>
+
+        <h1>Nova imagem</h1>
+    </nav>
+
+<body>
+        <div id="conteudo">
+
+        <div id="formulario">
+            <h2>Adicionar servicos</h2>
+
+            <input type="text" id="nomeServico" placeholder="Nome do servico">
+
+            <input type="number" id="precoServico" placeholder="Preco">
+
+            <button id="adicionarServico">Adicionar</button>
+            
+            <span id="erroNomePreco" class="erroServico">Erro: Nome e preco sao obrigatorios!</span>
+        </div>
+
+        <div id="listaServicos"></div>
+
+        <div id="modalServico">
+            <div id="conteudoModal">
+
+                <input type="text" placeholder="Nome" id="nomeModal">
+                <input type="text" placeholder="Preco" id="precoModal">
+
+                <button id="btnAalvarModal" onclick="salvarModal()">Salvar</button>
+                <button id="btnCancelarModal" onclick="cancelarModal()">Cancelar</button>
+
+            </div>
+        </div>
+
+        <script src="servicos.js"></script>
+    </div>
+
+    <footer>Criado por Ikaro</footer>
+
+</body>
+</html>
