@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela de servicos</title>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+    }
+    </script>
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="servicos.css">
     <link rel="stylesheet" href="nav.css">
