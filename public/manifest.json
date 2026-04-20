@@ -4,5 +4,14 @@
     "start_url": "/",
     "display": "standalone",
     "background_color": "#fdf6f9",
-    "theme_color": "#b5447a"
+    "theme_color": "#b5447a",
+
+
+"icons": [
+    {
+        "src": "/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+    }
+]
 }
