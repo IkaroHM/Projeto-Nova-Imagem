@@ -104,13 +104,14 @@ listarClientes();
 pegarServicos();
 precoDia();
 
+
 const btnAdicionarCliente = document.getElementById("btnAdicionarCliente");
 
 btnAdicionarCliente.addEventListener("click", () => {
   const horario = document.getElementById("horarioCliente").value
   const nome = document.getElementById("nomeCliente").value
   const telefone = document.getElementById("numeroCliente").value
-  const idServico = document.getElementById("servicoCliente").value
+  const idServico = Number(document.getElementById("servicoCliente").value)
 
   fetch("/clientes", {
     method: "POST",
