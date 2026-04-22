@@ -14,13 +14,13 @@ app.get("/clientes", async (req, res) => {
 })
 
 app.post("/clientes", async (req, res) => {
-    const {nome, telefone, horario, idServico} = req.body
+    const {nome, telefone, horario, idservico} = req.body
 
-    if (!nome || !horario || !telefone || !idServico) {
+    if (!nome || !horario || !telefone || !idservico) {
       return res.status(400).json({erro: "Todos os campos sao obrigatoriós!"})
     }
 
-    await pool.query("INSERT INTO clientes (nome, telefone, horario, idServico) VALUES ($1, $2, $3, $4)", [ nome, telefone, horario, idServico])
+    await pool.query("INSERT INTO clientes (nome, telefone, horario, idservico) VALUES ($1, $2, $3, $4)", [ nome, telefone, horario, idservico])
 
     res.json()
 })
@@ -54,7 +54,7 @@ app.post("/servicos", async (req, res) => {
 
 app.delete("/servicos/:id", async (req, res) => {
     const idurl = Number(req.params.id)
-    const clientes = await pool.query("SELECT * FROM clientes WHERE idServico = $1 ", [idurl])
+    const clientes = await pool.query("SELECT * FROM clientes WHERE idservico = $1 ", [idurl])
 
     if (clientes.rows.length > 0) {
         return res.status(400).json({erro: "Um cliente esta usando esse servico!"})
