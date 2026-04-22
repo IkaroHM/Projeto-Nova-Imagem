@@ -1,9 +1,9 @@
-function salvarClienteFaturamento(nome, idServico, id) {
+function salvarClienteFaturamento(nome, idservico, id) {
     fetch("/servicos")
       .then((res) => res.json())
       .then((servicos) => {
       
-        const servico = servicos.find(s => s.id === Number(idServico))
+        const servico = servicos.find(s => s.id === Number(idservico))
         const valor = servico.preco
         
         fetch("/faturamento", {
@@ -25,7 +25,7 @@ function precoDia() {
         .then((clientes) => {
           let totalDia = 0
           for (const cliente of clientes) {
-            const servico = servicos.find(s => s.id === cliente.idServico)
+            const servico = servicos.find(s => s.id === cliente.idservico)
             if (servico) {
               totalDia = totalDia + Number(servico.preco)
             }
@@ -59,7 +59,7 @@ function listarClientes() {
         .then((clientes) => {
           const html = clientes.map(
               (cliente) => {
-                const servicoCliente = servicos.find(s => s.id === cliente.idServico)
+                const servicoCliente = servicos.find(s => s.id === cliente.idservico)
                 return `
                   <div class="cliente">
                     <div class="clienteInfo">
@@ -69,7 +69,7 @@ function listarClientes() {
                       <span> ${servicoCliente.nome}. </span>
                     </div>
                     <div class="clienteBotoes">
-                      <button class="servicoFeito" onclick="salvarClienteFaturamento('${cliente.nome}', '${cliente.idServico}', ${cliente.id})">Feito</button>
+                      <button class="servicoFeito" onclick="salvarClienteFaturamento('${cliente.nome}', '${cliente.idservico}', ${cliente.id})">Feito</button>
                       <button class="btnApagar" onclick="apagarCliente(${cliente.id})">Apagar</button>
                     </div>
                   </div>
@@ -111,12 +111,12 @@ btnAdicionarCliente.addEventListener("click", () => {
   const horario = document.getElementById("horarioCliente").value
   const nome = document.getElementById("nomeCliente").value
   const telefone = document.getElementById("numeroCliente").value
-  const idServico = Number(document.getElementById("servicoCliente").value)
+  const idservico = Number(document.getElementById("servicoCliente").value)
 
   fetch("/clientes", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ nome, telefone, horario, idServico }),
+    body: JSON.stringify({ nome, telefone, horario, idservico }),
   }).then((res) => {
 
     if (!res.ok) {
