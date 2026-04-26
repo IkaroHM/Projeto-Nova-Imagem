@@ -1,0 +1,18 @@
+   CREATE TABLE IF NOT EXISTS servicos (
+      id SERIAL PRIMARY KEY,
+      nome TEXT,
+      preco REAL
+  );
+    CREATE TABLE IF NOT EXISTS clientes (
+      id SERIAL PRIMARY KEY,
+      nome TEXT,
+      telefone TEXT,
+      horario TEXT,
+      idservico INTEGER
+    );
+    CREATE TABLE IF NOT EXISTS faturamento (
+      id SERIAL PRIMARY KEY,
+      nome TEXT,
+      valor REAL,
+      data INTEGER
+    );
