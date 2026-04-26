@@ -42,7 +42,6 @@ app.get("/servicos", async (req, res) => {
 
 app.post("/servicos", async (req, res) => {
     const {nome, preco} = req.body
-    console.log(req.body)
 
     if (!nome || !preco) {
       return res.status(400).json({erro: "Nome e preco sao obrigatoriós!"})
