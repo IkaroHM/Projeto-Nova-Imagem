@@ -8,7 +8,7 @@ function listarClientesFaturamento() {
               <div class="clienteInfo">
                 <span> ${cliente.nome}.  </span>
                 <span> R$:${cliente.valor}. </span>
-                <span> Mes: ${cliente.data}. </span>
+                <span> Dia: ${cliente.data}. </span>
                 <button class="btnApagar" onclick="apagarCliente(${cliente.id})">Apagar</button>
               </div>
             </div>

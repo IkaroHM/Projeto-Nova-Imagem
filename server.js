@@ -96,7 +96,7 @@ app.delete("/faturamento", async (req, res) => {
 
 app.post("/faturamento",async (req, res) => {
     const {nome, valor} = req.body
-    const data = new Date().getMonth() + 1
+    const data = new Date().getDate()
     await pool.query("INSERT INTO faturamento (nome, valor, data) VALUES ($1, $2, $3)", [nome, valor, data])
     res.json()
 })
