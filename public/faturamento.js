@@ -9,6 +9,7 @@ function listarClientesFaturamento() {
                 <span> ${cliente.nome}.  </span>
                 <span> R$:${cliente.valor}. </span>
                 <span> Mes: ${cliente.data}. </span>
+                <button class="btnApagar" onclick="apagarCliente(${cliente.id})">Apagar</button>
               </div>
             </div>
         `,
@@ -49,6 +50,15 @@ function atualizarClientes() {
     listarClientesFaturamento()
     precoMes()
   })
+}
+
+function apagarCliente(id) {
+  fetch(`/faturamento/${id}`, {
+    method: "DELETE",
+  }).then(() => {
+    listarClientesFaturamento();
+    precoMes()
+  });
 }
 
 atualizarClientes()

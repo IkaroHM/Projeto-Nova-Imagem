@@ -80,6 +80,14 @@ app.get("/faturamento", async (req, res) => {
     res.json(clientesFaturamento.rows)
 })
 
+app.delete("/faturamento/:id", async (req, res) => {
+
+    const idurl = Number(req.params.id)
+    await pool.query("DELETE FROM faturamento WHERE id = $1", [idurl])
+    res.json({mensagem: "Cliente apagado com sucesso!"})
+    
+})
+
 app.delete("/faturamento", async (req, res) => {
     const dataAtual = new Date().getMonth() + 1
     await pool.query("DELETE FROM faturamento WHERE data != $1", [dataAtual])

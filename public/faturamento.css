@@ -107,6 +107,24 @@
 
         }
 
+        .btnApagar {
+            transition-duration: 0.4s;
+            background: none;
+            border: 1.5px solid var(--cor-hover);
+            color: var(--cor-principal);
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: auto;
+            margin-top: 1%;
+            margin-bottom: 1%;
+        }
+
+        .btnApagar:hover {
+            background-color: var(--cor-principal);
+            color: white;
+        }
+
         .cliente {
             display: flex;
             align-items: center;
