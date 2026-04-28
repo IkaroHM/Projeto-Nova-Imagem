@@ -90,7 +90,7 @@ app.delete("/faturamento/:id", async (req, res) => {
 
 app.delete("/faturamento", async (req, res) => {
     const dataAtual = new Date().getMonth() + 1
-    await pool.query("DELETE FROM faturamento WHERE data != $1", [dataAtual])
+    //await pool.query("DELETE FROM faturamento WHERE data != $1", [dataAtual])
     res.json()
 })
 
