@@ -2,13 +2,16 @@ function listarClientesFaturamento() {
   fetch("/faturamento")
     .then((res) => res.json())
     .then((clientesFaturamento) => {
+        const dataCompleta = clientesFaturamento.data_completa
+        const dataObj = new Date(dataCompleta)
+        const data = dataObj.toLocaleDateString("pt-BR", { day: '2-digit', timeZone: 'America/Sao_Paulo' })
         const html = clientesFaturamento.map(
           (cliente) => `
             <div class="cliente">
               <div class="clienteInfo">
                 <span> ${cliente.nome}.  </span>
                 <span> R$:${cliente.valor}. </span>
-                <span> Dia: ${cliente.data}. </span>
+                <span> Dia: ${data}. </span>
                 <button class="btnApagar" onclick="apagarCliente(${cliente.id})">Apagar</button>
               </div>
             </div>

@@ -96,8 +96,8 @@ app.delete("/faturamento", async (req, res) => {
 
 app.post("/faturamento",async (req, res) => {
     const {nome, valor} = req.body
-    const data = new Date().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" }).split('/')[0];
-    await pool.query("INSERT INTO faturamento (nome, valor, data) VALUES ($1, $2, $3)", [nome, valor, data])
+    const data_completa = new Date().toISOString()
+    await pool.query("INSERT INTO faturamento (nome, valor, data_completa) VALUES ($1, $2, $3)", [nome, valor, data_completa])
     res.json()
 })
 
