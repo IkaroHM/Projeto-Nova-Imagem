@@ -75,7 +75,10 @@ app.put("/servicos/:id", async (req, res) => {
 
 // Faturamento:
 
+let ultimaLimpeza = 0
+
 app.get("/faturamento", async (req, res) => {
+    const anoAtual = new Date().getFullYear()
     const clientesFaturamento = await pool.query("SELECT * FROM faturamento")
     res.json(clientesFaturamento.rows)
 })
@@ -86,12 +89,6 @@ app.delete("/faturamento/:id", async (req, res) => {
     await pool.query("DELETE FROM faturamento WHERE id = $1", [idurl])
     res.json({mensagem: "Cliente apagado com sucesso!"})
     
-})
-
-app.delete("/faturamento", async (req, res) => {
-    const dataAtual = new Date().getMonth() + 1
-    //await pool.query("DELETE FROM faturamento WHERE data != $1", [dataAtual])
-    res.json()
 })
 
 app.post("/faturamento",async (req, res) => {
