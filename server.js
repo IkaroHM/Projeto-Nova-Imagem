@@ -74,12 +74,15 @@ app.put("/servicos/:id", async (req, res) => {
 })
 
 // Faturamento:
-
-let ultimaLimpeza = 0
+let ultimaLimpeza = 0 
 
 app.get("/faturamento", async (req, res) => {
-    const anoAtual = new Date().getFullYear()
-    const clientesFaturamento = await pool.query("SELECT * FROM faturamento")
+    let anoAtual = new Date().getFullYear()
+    if (ultimaLimpeza !== anoAtual) {
+        await pool.query("DELETE FROM faturamento WHERE EXTRACT(YEAR FROM data_completa) < $1", [anoAtual - 1])
+        ultimaLimpeza = anoAtual
+    }
+    const clientesFaturamento = await pool.query("SELECT * FROM faturamento WHERE EXTRACT(YEAR FROM data_completa) = $1", [anoAtual])
     res.json(clientesFaturamento.rows)
 })
 

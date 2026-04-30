@@ -10,6 +10,8 @@
             --cor-principal: #b5447a;
             --cor-hover: #943561;
             --cor-borda: #bbecbd;
+            --azul-borda: #A8C6E2;
+            --dourado-borda: #F0D781;
         }
 
         * {
@@ -52,10 +54,11 @@
             font-size: 1.8rem;
         }
 
-        #infMes {
+        #resumoAnual {
+            cursor: pointer;
             transition-duration: 0.2s;
             margin-left: auto;
-            border: 1.5px solid var(--verde-medio);
+            border: 1.5px solid var(--azul-borda);
             border-radius: 20px;
             padding: 1rem;
             background-color: #fff9fb;
@@ -63,21 +66,47 @@
             font-size: 1.5rem;
         }
 
-        #infMes span {
+        #resumoAnual span {
             display: block;
             color: #333;
             font-size: 1.5rem;
         }
 
-        #infMes h1 {
+        #resumoAnual h1 {
             display: block;
             color: #333;
             font-weight: bold;
             font-family: 'Segoe UI', sans-serif;
         }
 
-        #infMes:hover {
+        #resumoAnual:hover {
             border-color: var(--rosa);
+        }
+
+        #mesDestaque {
+            display: none;
+            background: var(--branco);
+            border: 1.5px solid var(--dourado-borda);
+            border-radius: 16px;
+            padding: 1.5rem;
+            flex-direction: column;
+        }
+
+        #meses {
+            display: none;
+            background: var(--branco);
+            border: 1.5px solid var(--verde-medio);
+            border-radius: 16px;
+            padding: 1.5rem;
+            flex-direction: column;
+        }
+
+        #meses h2 {
+            display: flex;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--rosa);
+            margin-bottom: 1rem;
         }
 
         #conteudo {
@@ -104,7 +133,6 @@
             font-size: 1.1rem;
             color: var(--rosa);
             margin-bottom: 1rem;
-
         }
 
         .btnApagar {
