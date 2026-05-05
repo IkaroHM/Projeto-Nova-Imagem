@@ -30,7 +30,7 @@ function precoDia() {
               totalDia = totalDia + Number(servico.preco)
             }
           }
-          const html = `faturamento do dia: ${totalDia}`
+          const html = `faturamento: ${totalDia}`
           document.getElementById("previsaoDia").innerHTML = html
         })
     })
@@ -82,7 +82,7 @@ function listarClientes() {
               document.getElementById("listaClientes").style.display = "none"
             }
           document.getElementById("listaClientes").innerHTML = html;
-          document.getElementById("qntClientes").innerHTML = `Clientes hoje: ${clientes.length}`
+          document.getElementById("qntClientes").innerHTML = `Clientes : ${clientes.length}`
         })
     })
 }

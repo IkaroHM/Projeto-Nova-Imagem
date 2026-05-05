@@ -26,7 +26,16 @@ async function listarClientesFaturamento () {
     
   })
 
-  console.log(meses)
+  let totalAno = 0
+  let clientesAno = 0
+  Object.values(meses).forEach(mes => {
+    totalAno += mes.faturamento
+    clientesAno += mes.totalClientes
+  })
+
+  document.getElementById("faturamento").textContent = totalAno
+  document.getElementById("qntClientesAno").textContent = clientesAno
+
 }
 
 function apagarCliente(id) {
@@ -36,3 +45,4 @@ function apagarCliente(id) {
     listarClientesFaturamento();
   });
 }
+listarClientesFaturamento()
