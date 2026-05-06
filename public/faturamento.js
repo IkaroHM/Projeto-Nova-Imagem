@@ -1,6 +1,7 @@
 async function listarClientesFaturamento () {
   const response = await fetch("/faturamento")
   const clientes = await response.json()
+  const containerMeses = document.getElementById("meses");
 
   const meses ={ 
     "janeiro": {totalClientes: 0, faturamento: 0,  clientes: [] },
