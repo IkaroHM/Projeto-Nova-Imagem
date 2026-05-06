@@ -53,7 +53,35 @@ async function listarClientesFaturamento () {
   document.getElementById("mesDestaque").innerHTML = `
     <p>Mês com mais clientes: <span>${mesGanhadorClientes}</span> (${maiorQntClientes} clientes)</p>
     <p>Mês com maior faturamento: <span>${mesGanhadorFaturamento}</span> (R$ ${maiorTotal})</p>`
+
+    Object.entries(meses).forEach(([mes, dados]) => {
+        if (dados.totalClientes > 0) {
+          const clientesHtml = dados.clientes.map(cliente => {
+            return `
+              <div class="cliente-item">
+                <p>${cliente.nome}</p>
+                span class="valor">R$ ${cliente.valor.toFixed(2).replace('.', ',')}</span>
+                <button class="btnApagar" onclick="apagarCliente(${cliente.id})">Apagar</button>
+              </div>
+            `;
+          }).join('')
+          const cardMesdiv = document.createElement('div')
+          cardMesdiv.classList.add('card-mes')
+          cardMesdiv.innerHTML = `
+            <h3>${mes.charAt(0).toUpperCase() + mes.slice(1)}</h3>
+            <p>Faturamento do Mês: <strong>R$ ${dados.faturamento.toFixed(2).replace('.', ',')}</strong></p>
+            <p>Clientes atendidos: <strong>${dados.totalClientes}</strong></p>
+            <div class="clientesMes">
+              ${clientesHtml}
+            </div>
+          `
+
+          document.getElementById("meses").appendChild(cardMesdiv)
+        }
+      })
 }
+
+
 
 function apagarCliente(id) {
   fetch(`/faturamento/${id}`, {
