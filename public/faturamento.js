@@ -28,14 +28,31 @@ async function listarClientesFaturamento () {
 
   let totalAno = 0
   let clientesAno = 0
-  Object.values(meses).forEach(mes => {
-    totalAno += mes.faturamento
-    clientesAno += mes.totalClientes
-  })
+  let maiorQntClientes = 0
+  let maiorTotal = 0
+  let mesGanhadorClientes = ""
+  let mesGanhadorFaturamento = ""
 
+  Object.entries(meses).forEach(([nome, dados]) => {
+
+    totalAno += dados.faturamento
+    clientesAno += dados.totalClientes
+
+    if (dados.totalClientes > maiorQntClientes) {
+      maiorQntClientes = dados.totalClientes
+      mesGanhadorClientes = nome
+    }
+    if (dados.faturamento > maiorTotal) {
+      maiorTotal = dados.faturamento
+      mesGanhadorFaturamento = nome
+    }
+  })
+  
   document.getElementById("faturamento").textContent = totalAno
   document.getElementById("qntClientesAno").textContent = clientesAno
-
+  document.getElementById("mesDestaque").innerHTML = `
+    <p>Mês com mais clientes: <span>${mesGanhadorClientes}</span> (${maiorQntClientes} clientes)</p>
+    <p>Mês com maior faturamento: <span>${mesGanhadorFaturamento}</span> (R$ ${maiorTotal})</p>`
 }
 
 function apagarCliente(id) {

@@ -1,4 +1,4 @@
-        :root {
+:root {
             --rosa: #b5447a;
             --rosa-escuro: #943561;
             --verde: #c8e6c9;
@@ -63,13 +63,12 @@
             padding: 1rem;
             background-color: #fff9fb;
             min-width: 200px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
 
         #resumoAnual span {
             display: block;
             color: #333;
-            font-size: 1.5rem;
         }
 
         #resumoAnual h1 {
@@ -84,12 +83,15 @@
         }
 
         #mesDestaque {
-            display: none;
-            background: var(--branco);
+            cursor: pointer;
+            transition-duration: 0.2s;
+            margin-left: auto;
             border: 1.5px solid var(--dourado-borda);
-            border-radius: 16px;
-            padding: 1.5rem;
-            flex-direction: column;
+            border-radius: 20px;
+            padding: 1rem;
+            background-color: #fff9fb;
+            min-width: 200px;
+            font-size: 1.3rem;
         }
 
         #meses {

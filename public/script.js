@@ -82,7 +82,7 @@ function listarClientes() {
               document.getElementById("listaClientes").style.display = "none"
             }
           document.getElementById("listaClientes").innerHTML = html;
-          document.getElementById("qntClientes").innerHTML = `Clientes : ${clientes.length}`
+          document.getElementById("qntClientes").innerHTML = `Clientes: ${clientes.length}`
         })
     })
 }
