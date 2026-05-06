@@ -1,67 +1,61 @@
-:root {
-    --rosa: #b5447a;
-    --rosa-escuro: #943561;
-    --verde: #c8e6c9;
-    --verde-medio: #6cbe6f;
-    --fundo: #fdf6f9;
-    --branco: #ffffff;
-    --cinza: #f0e8ed;
-    --texto: #333;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-a {
-    transition-duration: 1s;
-    display: flex;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-a:focus, a:hover {
-    color: beige;
-    text-decoration: underline;
-    font-size: 1.2rem;
-}
-
-body {
-    display: flex;
-    font-family: 'DM Sans', sans-serif;
-    background-color: #fdf6f9;
-    color: #333;
-    min-height: 100vh;
-    flex-direction: column;
-}
+/* ── NAV.CSS ── compartilhado entre todas as páginas ── */
 
 nav {
+    background: var(--branco);
+    border-bottom: 1px solid var(--verde);
+    padding: 0.85rem 1.25rem;
     display: flex;
-    background-color: var(--rosa);
-    border-radius: 5px;
-    padding-bottom: 15px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-radius: 0;
 }
 
-nav a{
-    font-family: 'Nunito', sans-serif;
-    color: var(--branco);
-    transition: 0.6s;
+#linkNav {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+#linkNav span {
+    display: flex;
+}
+
+#linkNav a {
+    display: inline;
+    color: var(--texto-muted, #8a6b7a);
     text-decoration: none;
-    margin-bottom: 3px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.02em;
+    padding-bottom: 2px;
+    border-bottom: 1.5px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
 }
 
+#linkNav a:hover {
+    color: var(--rosa);
+    border-bottom-color: var(--rosa);
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+#linkNav a.ativo {
+    color: var(--rosa);
+    border-bottom-color: var(--rosa);
+}
 
 nav h1 {
     font-family: 'Playfair Display', serif;
-    margin-left: auto;
-    margin-right: 20px;
-    color: var(--branco);
-    font-size: 2.3rem;
     font-style: italic;
+    font-weight: 400;
+    color: var(--rosa);
+    font-size: 1rem;
+    margin: 0;
+    white-space: nowrap;
 }
 
 nav h1:hover {
-    color: beige;
+    color: var(--rosa);
 }

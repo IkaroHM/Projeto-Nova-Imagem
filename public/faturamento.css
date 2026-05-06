@@ -1,202 +1,268 @@
 :root {
-            --rosa: #b5447a;
-            --rosa-escuro: #943561;
-            --verde: #c8e6c9;
-            --verde-medio: #6cbe6f;
-            --fundo: #fdf6f9;
-            --branco: #ffffff;
-            --cinza: #f0e8ed;
-            --texto: #333;
-            --cor-principal: #b5447a;
-            --cor-hover: #943561;
-            --cor-borda: #bbecbd;
-            --azul-borda: #A8C6E2;
-            --dourado-borda: #F0D781;
-        }
+    --rosa: #b5447a;
+    --rosa-escuro: #943561;
+    --rosa-claro: #f7eaf1;
+    --verde: #c8e6c9;
+    --verde-medio: #6cbe6f;
+    --fundo: #fdf6f9;
+    --branco: #ffffff;
+    --texto: #3a2a35;
+    --texto-muted: #8a6b7a;
+    --cor-principal: #b5447a;
+    --cor-hover: #943561;
+    --azul-borda: #A8C6E2;
+    --dourado-borda: #F0D781;
+    --sombra: 0 2px 12px rgba(181, 68, 122, 0.07);
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background-color: var(--fundo);
-            color: var(--texto);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--fundo);
+    color: var(--texto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
-        header {
-            padding: 2rem 2rem 0;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+/* NAV */
+header {
+    background: var(--branco);
+    border-bottom: 1px solid var(--verde);
+    padding: 0.9rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
 
-        header a {
-            color: var(--rosa);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
+header a {
+    color: var(--texto-muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding-bottom: 2px;
+    border-bottom: 1.5px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
 
-        header a:hover {
-            text-decoration: underline;
-        }
+header a:hover,
+header a.ativo {
+    color: var(--rosa);
+    border-bottom-color: var(--rosa);
+}
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            color: var(--rosa);
-            font-size: 1.8rem;
-        }
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--rosa);
+    font-size: 1.4rem;
+    margin-left: auto;
+}
 
-        #resumoAnual {
-            cursor: pointer;
-            transition-duration: 0.2s;
-            margin-left: auto;
-            border: 1.5px solid var(--azul-borda);
-            border-radius: 20px;
-            padding: 1rem;
-            background-color: #fff9fb;
-            min-width: 200px;
-            font-size: 1.3rem;
-        }
+/* CARDS DE TOPO */
+#resumoAnual,
+#mesDestaque {
+    background: var(--branco);
+    border-radius: 18px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: var(--sombra);
+    border: 1px solid rgba(181, 68, 122, 0.08);
+    border-top-width: 3px;
+    min-width: 220px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
 
-        #resumoAnual span {
-            display: block;
-            color: #333;
-        }
+#resumoAnual {
+    border-top-color: var(--azul-borda);
+}
 
-        #resumoAnual h1 {
-            display: block;
-            color: #333;
-            font-weight: bold;
-            font-family: 'Segoe UI', sans-serif;
-        }
+#mesDestaque {
+    border-top-color: var(--dourado-borda);
+}
 
-        #resumoAnual:hover {
-            border-color: var(--rosa);
-        }
+#resumoAnual:hover,
+#mesDestaque:hover {
+    border-color: rgba(181, 68, 122, 0.25);
+    border-top-color: var(--rosa);
+    box-shadow: 0 4px 20px rgba(181, 68, 122, 0.12);
+}
 
-        #mesDestaque {
-            cursor: pointer;
-            transition-duration: 0.2s;
-            margin-left: auto;
-            border: 1.5px solid var(--dourado-borda);
-            border-radius: 20px;
-            padding: 1rem;
-            background-color: #fff9fb;
-            min-width: 200px;
-            font-size: 1.3rem;
-        }
+/* Label tipo "etiqueta" acima do conteúdo do card */
+#resumoAnual::before,
+#mesDestaque::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--texto-muted);
+    margin-bottom: 0.75rem;
+}
 
-        #meses {
-            display: none;
-            background: var(--branco);
-            border: 1.5px solid var(--verde-medio);
-            border-radius: 16px;
-            padding: 1.5rem;
-            flex-direction: column;
-        }
+#resumoAnual span,
+#mesDestaque span {
+    color: var(--rosa);
+    font-weight: 600;
+}
 
-        #meses h2 {
-            display: flex;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: var(--rosa);
-            margin-bottom: 1rem;
-        }
+#resumoAnual p,
+#mesDestaque p {
+    font-size: 0.9rem;
+    color: var(--texto);
+    line-height: 1.75;
+}
 
-        #conteudo {
-            flex: 1;
-            padding: 2rem;
-            display: flex;
-            gap: 2rem;
-            align-items: flex-start;
-        }
+/* Remove o h1 interno dos cards (era redundante com o h1 geral) */
+#resumoAnual h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-size: 0.9rem;
+    color: var(--texto);
+    font-weight: 400;
+}
 
-        /* LISTA */
-        #listaClientesFaturamento {
-            display: none;
-            background: var(--branco);
-            border: 1.5px solid var(--verde-medio);
-            border-radius: 16px;
-            padding: 1.5rem;
-            flex-direction: column;
-        }
+/* CONTEÚDO */
+#conteudo {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
 
-        #listaClientesFaturamento h2 {
-            display: flex;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: var(--rosa);
-            margin-bottom: 1rem;
-        }
+/* PAINEL DE MESES */
+#meses {
+    display: none;
+    background: var(--branco);
+    border: 1px solid var(--verde);
+    border-radius: 18px;
+    padding: 1.5rem;
+    flex-direction: column;
+    box-shadow: var(--sombra);
+    min-width: 240px;
+}
 
-        .btnApagar {
-            transition-duration: 0.4s;
-            background: none;
-            border: 1.5px solid var(--cor-hover);
-            color: var(--cor-principal);
-            padding: 6px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            width: auto;
-            margin-top: 1%;
-            margin-bottom: 1%;
-        }
+#meses h2 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--rosa);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--verde);
+}
 
-        .btnApagar:hover {
-            background-color: var(--cor-principal);
-            color: white;
-        }
+/* LISTA DE CLIENTES */
+#listaClientesFaturamento {
+    display: none;
+    background: var(--branco);
+    border: 1px solid var(--verde);
+    border-radius: 18px;
+    padding: 1.5rem;
+    flex-direction: column;
+    flex: 1;
+    box-shadow: var(--sombra);
+    min-width: 280px;
+}
 
-        .cliente {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: var(--fundo);
-            border: 1.5px solid var(--verde);
-            border-radius: 12px;
-            padding: 9px 10px;
-            margin-bottom: 8px;
-            transition: 0.3s;
-        }
+#listaClientesFaturamento h2 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--rosa);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--verde);
+}
 
-        .cliente:hover {
-            border-color: var(--rosa);
-        }
+/* ITEM CLIENTE */
+.cliente {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--fundo);
+    border: 1px solid var(--verde);
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    transition: border-color 0.2s, background 0.2s;
+}
 
-        .clienteInfo {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            color: var(--rosa);
-            font-weight: 500;
-            font-size: 0.95rem;
-            margin-right: 10px;
-        }
+.cliente:hover {
+    border-color: var(--rosa-escuro);
+    background: var(--rosa-claro);
+}
 
-        footer {
-            background: #333;
-            text-align: center;
-            color: #f7fae5;
-            font-size: 0.85rem;
-            padding: 8px;
-        }
+.clienteInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: var(--rosa);
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
 
-        /* MOBILE */
-        @media (max-width: 600px) {
-            #conteudo {
-                flex-direction: column;
-            }
+.clienteInfo small {
+    color: var(--texto-muted);
+    font-weight: 400;
+    font-size: 0.78rem;
+}
 
-            #listaClientesFaturamento {
-                flex: none;
-                width: 100%;
-            }
-        }
+/* BOTÃO APAGAR */
+.btnApagar {
+    background: none;
+    border: 1px solid rgba(148, 53, 97, 0.3);
+    color: var(--rosa-escuro);
+    padding: 5px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+}
+
+.btnApagar:hover {
+    background: var(--rosa);
+    border-color: var(--rosa);
+    color: #fff;
+}
+
+/* FOOTER */
+footer {
+    background: #2a1f25;
+    text-align: center;
+    color: rgba(247, 250, 229, 0.7);
+    font-size: 0.8rem;
+    padding: 10px;
+    letter-spacing: 0.03em;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    #conteudo {
+        flex-direction: column;
+        padding: 1.25rem;
+    }
+
+    #resumoAnual,
+    #mesDestaque,
+    #meses,
+    #listaClientesFaturamento {
+        width: 100%;
+        min-width: unset;
+    }
+}
