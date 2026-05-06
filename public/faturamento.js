@@ -60,7 +60,7 @@ async function listarClientesFaturamento () {
             return `
               <div class="cliente-item">
                 <p>${cliente.nome}</p>
-                span class="valor">R$ ${cliente.valor.toFixed(2).replace('.', ',')}</span>
+                <span class="valor">R$ ${cliente.valor.toFixed(2).replace('.', ',')}</span>
                 <button class="btnApagar" onclick="apagarCliente(${cliente.id})">Apagar</button>
               </div>
             `;
