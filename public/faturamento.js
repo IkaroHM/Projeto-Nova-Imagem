@@ -93,3 +93,14 @@ function apagarCliente(id) {
   });
 }
 listarClientesFaturamento()
+
+const inputBusca = document.getElementById("clienteBusca")
+
+inputBusca.addEventListener("input", () => {
+  const termoBusca = inputBusca.value.toLowerCase()
+  filtrarClientes(termoBusca)
+})
+
+async function filtrarClientes (termobusca) {
+  const listaClientes = document.children("cliente-item")
+}
