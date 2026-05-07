@@ -140,6 +140,44 @@ h1 {
     flex-wrap: wrap;
 }
 
+.busca {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+}
+ 
+.busca label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--texto-muted);
+}
+ 
+.busca input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #e8d5e0;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--texto);
+    background: var(--fundo);
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+ 
+.busca input:focus {
+    border-color: var(--rosa);
+    background: var(--branco);
+}
+ 
+.busca input::placeholder {
+    color: var(--texto-muted);
+    opacity: 0.6;
+}
+
 /* PAINEL DE MESES */
 #meses {
     display: block;

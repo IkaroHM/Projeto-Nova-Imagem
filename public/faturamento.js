@@ -1,4 +1,4 @@
-async function listarClientesFaturamento () {
+async function listarClientesFaturamento (termobusca = '') {
   const response = await fetch("/faturamento")
   const clientes = await response.json()
   const containerMeses = document.getElementById("meses");
@@ -19,13 +19,18 @@ async function listarClientesFaturamento () {
     "dezembro": {totalClientes: 0, faturamento: 0,  clientes: [] }
   }
 
-  clientes.forEach(cliente => {
+  const clientesFiltrados = clientes.filter(cliente => cliente.nome.toLowerCase().includes(termobusca.toLowerCase()))
+
+  clientesFiltrados.forEach(cliente => {
     const nomeMes = new Date(cliente.data_completa).toLocaleString('pt-BR', { month: 'long' })
 
-    meses[nomeMes].totalClientes++
-    meses[nomeMes].faturamento += Number(cliente.valor)
-    meses[nomeMes].clientes.push(cliente)
-    
+    if (meses[nomeMes]) {
+
+      meses[nomeMes].totalClientes++
+      meses[nomeMes].faturamento += Number(cliente.valor)
+      meses[nomeMes].clientes.push(cliente)
+
+    }
   })
 
   let totalAno = 0
@@ -50,11 +55,11 @@ async function listarClientesFaturamento () {
     }
   })
   
-  document.getElementById("faturamento").textContent = totalAno
+  document.getElementById("faturamento").textContent = totalAno.toFixed(2).replace('.', ',')
   document.getElementById("qntClientesAno").textContent = clientesAno
   document.getElementById("mesDestaque").innerHTML = `
     <p>Mês com mais clientes: <span>${mesGanhadorClientes}</span> (${maiorQntClientes} clientes)</p>
-    <p>Mês com maior faturamento: <span>${mesGanhadorFaturamento}</span> (R$ ${maiorTotal})</p>`
+    <p>Mês com maior faturamento: <span>${mesGanhadorFaturamento}</span> (R$ ${maiorTotal.toFixed(2).replace('.', ',')})</p>`
 
     Object.entries(meses).forEach(([mes, dados]) => {
         if (dados.totalClientes > 0) {
@@ -89,18 +94,16 @@ function apagarCliente(id) {
   fetch(`/faturamento/${id}`, {
     method: "DELETE",
   }).then(() => {
-    listarClientesFaturamento();
+    const termobusca = document.getElementById("clienteBusca").value
+    listarClientesFaturamento(termobusca);
   });
 }
-listarClientesFaturamento()
 
-const inputBusca = document.getElementById("clienteBusca")
+document.getElementById("clienteBusca").addEventListener("input", (event) => {
 
-inputBusca.addEventListener("input", () => {
-  const termoBusca = inputBusca.value.toLowerCase()
-  filtrarClientes(termoBusca)
+  const termobusca = event.target.value
+  listarClientesFaturamento(termobusca)
+
 })
 
-async function filtrarClientes (termobusca) {
-  const listaClientes = document.children("cliente-item")
-}
+listarClientesFaturamento()
