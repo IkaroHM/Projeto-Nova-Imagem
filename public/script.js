@@ -127,6 +127,10 @@ btnAdicionarCliente.addEventListener("click", () => {
 
     listarClientes();
     precoDia()
+    document.getElementById("nomeCliente").value = "";
+    document.getElementById("numeroCliente").value = "";
+    document.getElementById("horarioCliente").value = "";
+    document.getElementById("servicoCliente").value = "";
   });
   
 
